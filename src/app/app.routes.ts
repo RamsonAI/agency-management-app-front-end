@@ -10,6 +10,7 @@ import { AgencyManagementComponent } from './pages/admin-page/agency-management/
 import { ServiceManagementComponent } from './pages/admin-page/service-management/service-management.component';
 import { CategoryManagementComponent } from './pages/admin-page/category-management/category-management.component';
 import { DashboardLayoutComponent } from './pages/admin-page/dashboard-layout/dashboard-layout.component';
+import { RoleManagementComponent } from './pages/admin-page/role-management/role-management.component';
 
 export const routes: Routes = [
 
@@ -31,7 +32,8 @@ export const routes: Routes = [
             {path:'user-management', component:UserManagementComponent},
             {path:'agency-management', component:AgencyManagementComponent},
             {path:'service-management', component:ServiceManagementComponent},
-            {path:'category-management', component:CategoryManagementComponent}
+            {path:'category-management', component:CategoryManagementComponent},
+            {path:'role-management', component:RoleManagementComponent}
         ]
     },
     

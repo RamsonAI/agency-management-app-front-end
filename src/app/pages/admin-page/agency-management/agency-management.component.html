@@ -1,1 +1,60 @@
-<p>agency-management works!</p>
+<div class="p-2">
+    <h3 class="text-gray-500"><a routerLink="/dashboard">Dashboard</a>/Agency Management</h3>
+</div>
+
+
+<div class="p-4">
+    <!-- Header Section with Search and Add Agency Button -->
+    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+        <div class="relative w-full md:w-1/2">
+            <input type="text" placeholder="Search agencies..." class="w-full pl-10 pr-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M8 4a6 6 0 106 6 6 6 0 00-6-6zM2 8a8 8 0 1115.89 5.25L20 18l-1.41 1.41-3.3-3.29A8 8 0 012 8z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <!-- <button class="mt-3 md:mt-0 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">
+            Add New Agency
+        </button> -->
+    </div>
+
+    <!-- Responsive Table -->
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead>
+                <tr class="bg-gray-200 text-gray-600 text-left text-sm leading-normal">
+                    <th class="py-3 px-6">Agency ID</th>
+                    <th class="py-3 px-6">Name</th>
+                    <th class="py-3 px-6">Location</th>
+                    <th class="py-3 px-6">Contact</th>
+                    <th class="py-3 px-6">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6">1</td>
+                    <td class="py-3 px-6">Agency A</td>
+                    <td class="py-3 px-6">New York</td>
+                    <td class="py-3 px-6">contact.com</td>
+                    <td class="py-3 px-6">
+                        <div class="flex items-center space-x-2">
+                            <button class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs">Deactivate</button>
+                            <!-- <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs">Delete</button> -->
+                        </div>
+                    </td>
+                </tr>
+                <!-- Additional rows -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-between items-center mt-4">
+        <span class="text-sm text-gray-700">Showing 1 to 10 of 50 Entries</span>
+        <div class="flex space-x-1">
+            <button class="px-3 py-1 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Previous</button>
+            <button class="px-3 py-1 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">1</button>
+            <button class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">2</button>
+            <button class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">Next</button>
+        </div>
+    </div>
+</div>
