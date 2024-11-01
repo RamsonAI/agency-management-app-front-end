@@ -1,0 +1,5 @@
+.sidebar-icon {
+    width: 24px; /* Adjust width */
+    height: 24px; /* Adjust height */
+    flex-shrink: 0; /* Prevents shrinking */
+}

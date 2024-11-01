@@ -1,0 +1,69 @@
+<app-landing-top-bar></app-landing-top-bar>
+
+<div class="max-w-4xl mx-auto p-6 bg-white  rounded-lg mt-20">
+  <!-- Service Name -->
+  <header class="mb-4">
+    <h1 class="text-3xl font-bold text-indigo-600">{{ service.name }}</h1>
+    <p class="text-sm text-gray-500">High-quality service for your needs</p>
+  </header>
+
+  <!-- Service Photo Gallery -->
+  <section class="relative mb-6">
+    <div class="grid grid-cols-3 gap-4">
+      <img *ngFor="let photo of service.photos.slice(0, 3)" [src]="photo" alt="Service Photo"
+           class="rounded-lg object-cover w-full h-32 shadow-md">
+    </div>
+    <!-- Floating button for viewing all photos -->
+    <button (click)="viewAllPhotos()" class="fixed bottom-4 right-4 bg-indigo-500 text-white rounded-full p-3 shadow-lg hover:bg-indigo-600">
+      View All Photos
+    </button>
+  </section>
+
+  <!-- Service Description -->
+  <section class="mb-4">
+    <h2 class="text-2xl font-semibold text-gray-800">Description</h2>
+    <p class="text-gray-600 mt-2">{{ service.description }}</p>
+  </section>
+
+  <!-- Service Price -->
+  <section class="mb-4">
+    <h2 class="text-2xl font-semibold text-gray-800">Price</h2>
+    <p class="text-indigo-500 text-lg font-semibold mt-2">{{ service.price | currency: "Tsh " }}</p>
+    <!-- Request Button -->
+    <button class="mt-4 bg-indigo-500 text-white py-2 px-4 rounded-lg shadow hover:bg-indigo-600">
+      Request Service
+    </button>
+  </section><hr>
+
+  <!-- Owner Information -->
+   <h2 class="text-2xl font-semibold text-gray-800">Agency</h2>
+  <section class="mt-4 mb-4 flex items-center space-x-4">
+    <img [src]="service.owner.photo" alt="Owner Photo" class="w-16 h-16 rounded-full object-cover shadow-md">
+    <div>
+      <h3 class="text-lg font-bold">{{ service.owner.name }}</h3>
+      <p class="text-gray-500">{{ service.owner.contact }}</p>
+    </div>
+  </section><br><hr>
+
+  <!-- User Reviews with Horizontal Scroll -->
+  <section class="mb-4 mt-4">
+    <h2 class="text-2xl font-semibold text-gray-800">User Reviews</h2>
+    <div class="flex overflow-x-auto space-x-4 mt-4 p-4 -mx-4">
+      <div *ngFor="let review of service.reviews" class="w-64 flex-shrink-0 bg-gray-100 rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-3">
+          <img [src]="review.userPhoto" alt="User Photo" class="w-10 h-10 rounded-full">
+          <div>
+            <h3 class="text-md font-semibold">{{ review.userName }}</h3>
+            <p class="text-xs text-gray-500">{{ review.date | date }}</p>
+          </div>
+        </div>
+        <p class="mt-2 text-gray-700">{{ review.comment }}</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<br>
+<hr>
+
+<app-footer></app-footer>

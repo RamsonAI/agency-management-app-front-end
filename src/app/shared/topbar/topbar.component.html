@@ -1,12 +1,26 @@
-<header class="bg-white shadow px-4 py-4 flex">
-    <!-- <div class="text-lg font-semibold">Dashboard</div> -->
-    <div class="flex items-center space-x-4 ms-auto">
-      <!-- User Profile -->
+<header class="bg-white shadow px-4 py-4 flex items-center">
+  <!-- SVG Icon on the left -->
+  <button class="mr-auto">
+    <svg class="w-5 h-5 text-indigo-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+    </svg>
+  </button>
+
+  <!-- Right Side Content -->
+  <div class="flex items-center space-x-4 ml-auto">
+    <!-- User Profile Button -->
+    <button mat-button [matMenuTriggerFor]="beforeMenu">
       <div class="flex items-center space-x-2">
-        <span class="text-gray-700">Welcome, John</span>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwnYnwftDUSjsQmLQvMBZ2pwDXhAJiIdfKvg&s" alt="User Profile" class="w-10 h-10 rounded-full">
+        <span class="text-gray-700">Welcome, Ramson</span>
+        <img src="assets/ramson.jpeg" alt="User Profile" class="w-10 h-10 rounded-full">
       </div>
-      <!-- Logout Button -->
-      <!-- <button [routerLink]="['/Welcome']" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 focus:outline-none">Logout</button> -->
-    </div>
-  </header>
+    </button>
+
+    <!-- Profile Menu -->
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button routerLink="/dashboard/profile" mat-menu-item>My Profile</button>
+      <button mat-menu-item>Change Password</button>
+      <button routerLink="/Welcome" mat-menu-item>Logout</button>
+    </mat-menu>
+  </div>
+</header>

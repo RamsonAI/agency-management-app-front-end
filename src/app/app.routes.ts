@@ -11,6 +11,10 @@ import { ServiceManagementComponent } from './pages/admin-page/service-managemen
 import { CategoryManagementComponent } from './pages/admin-page/category-management/category-management.component';
 import { DashboardLayoutComponent } from './pages/admin-page/dashboard-layout/dashboard-layout.component';
 import { RoleManagementComponent } from './pages/admin-page/role-management/role-management.component';
+import { ProfileComponent } from './shared/profile/profile.component';
+import { SpecificServiceComponent } from './pages/landing-page/components/specific-service/specific-service.component';
+import { ServicePhotosComponent } from './pages/landing-page/components/service-photos/service-photos.component';
+import { AgencyProfileComponent } from './pages/landing-page/components/agency-profile/agency-profile.component';
 
 export const routes: Routes = [
 
@@ -24,6 +28,12 @@ export const routes: Routes = [
 
     {path:'forgot-password', component:ForgotPasswordComponent},
 
+    {path:'service/id', component:SpecificServiceComponent},
+
+    {path:'service-photos', component:ServicePhotosComponent},
+
+    {path:'agency-profile', component:AgencyProfileComponent},
+
     {
         path:'dashboard', 
         component:DashboardLayoutComponent,
@@ -33,7 +43,8 @@ export const routes: Routes = [
             {path:'agency-management', component:AgencyManagementComponent},
             {path:'service-management', component:ServiceManagementComponent},
             {path:'category-management', component:CategoryManagementComponent},
-            {path:'role-management', component:RoleManagementComponent}
+            {path:'role-management', component:RoleManagementComponent},
+            {path:'profile', component:ProfileComponent}
         ]
     },
     
