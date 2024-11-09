@@ -4,10 +4,12 @@ import { Observable } from 'rxjs';
 import { Category } from './category.model';
 
 
+
 export interface LoadCategoryReponse 
 {
   content : Category[]
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +21,9 @@ export class CategoryService {
 
   fetchAllCategories(): Observable<LoadCategoryReponse>{
     return this.http.get<LoadCategoryReponse>(this.apiurl);
+  }
+  createCategories(data: any): Observable<LoadCategoryReponse>{
+    return this.http.post<any>(this.apiurl, data);
   }
 
 }

@@ -7,11 +7,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { PaginationComponent } from "../../shared/pagination/pagination.component";
+import { CategoryComponent } from "../../shared/category/category.component";
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [RouterLink, LandingTopBarComponent, FooterComponent, AgencyListComponent, ServiceListComponent, SearchbarComponent, PaginationComponent],
+  imports: [RouterLink, LandingTopBarComponent, FooterComponent, AgencyListComponent, ServiceListComponent, SearchbarComponent, PaginationComponent, CategoryComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })

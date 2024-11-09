@@ -1,0 +1,50 @@
+<div class="relative flex items-center w-full">
+    <!-- Left Arrow -->
+    <button
+      class="absolute left-0 z-10 p-2 bg-gray-800 rounded-full text-white hover:bg-gray-600"
+      (click)="scrollLeft()"
+    >
+      <!-- Left arrow icon -->
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fill-rule="evenodd"
+          d="M15.293 4.707a1 1 0 010 1.414L9.414 12l5.879 5.879a1 1 0 11-1.414 1.414l-6.586-6.586a1 1 0 010-1.414l6.586-6.586a1 1 0 011.414 0z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
+  
+    <!-- Scrollable Categories -->
+    <div
+      #scrollContainer
+      class="flex overflow-x-auto space-x-4 py-4 scrollbar-hide w-full px-10"
+    >
+      <div
+        *ngFor="let category of categories"
+        class="flex flex-col items-center min-w-[100px] transition-transform duration-300"
+      >
+        <img
+          [src]="category.icon"
+          [alt]="category.name"
+          class="w-16 h-16 object-cover rounded-full"
+        />
+        <p class="text-sm mt-2">{{ category.name }}</p>
+      </div>
+    </div>
+  
+    <!-- Right Arrow -->
+    <button
+      class="absolute right-0 z-10 p-2 bg-gray-800 rounded-full text-white hover:bg-gray-600"
+      (click)="scrollRight()"
+    >
+      <!-- Right arrow icon -->
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fill-rule="evenodd"
+          d="M4.707 4.707a1 1 0 000 1.414L10.586 12 4.707 17.879a1 1 0 101.414 1.414l6.586-6.586a1 1 0 000-1.414l-6.586-6.586a1 1 0 00-1.414 0z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  
