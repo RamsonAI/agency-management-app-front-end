@@ -6,52 +6,44 @@ import { CommonModule } from '@angular/common';
 import { Category } from '../../../core/services/category/category.model';
 import { Observable, of } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
+import { PaginationComponent } from "../../../shared/pagination/pagination.component"; // Import ReactiveFormsModule
 
 
 
 @Component({
   selector: 'app-category-management',
   standalone: true,
-  imports: [RouterLink, DeleteModalComponent, CommonModule, ReactiveFormsModule],
+  imports: [RouterLink, DeleteModalComponent, CommonModule, ReactiveFormsModule, PaginationComponent],
   templateUrl: './category-management.component.html',
   styleUrl: './category-management.component.css'
 })
 export class CategoryManagementComponent implements OnInit {
 
+  categoryToDelete: any | null = null;
+
+  setCategoryToDelete(uuid: string){
+    this.categoryToDelete = uuid;
+  }
+
   //handle delete cofirmation
   public cform!:FormGroup
-
-  constructor(private formbuilder:FormBuilder){
-    this.cform = formbuilder.group({
-      "categoryName": ['',Validators.required]
-    })
-  }
-  onSubmit() {
-    this.categoryService.createCategories(this.cform.value).subscribe((res)=>{
-      console.log(res)
-      // notify(res.message,'success',)
-    })
-    window.location.reload();
-  }
-
-  
-
-  onConfirmDelete(){
-    console.log("item deleted")
-  }
-
-  //handle Delete cancellation
-  onCancelDelete(){
-    console.log("Delete canceled")
-  }
-
   categories!: Observable<Category[]>;
 
   private categoryService = inject(CategoryService);
 
-  ngOnInit(): void {
+  constructor(private formbuilder:FormBuilder){
+    this.cform = formbuilder.group({
+      "categoryName": ['',Validators.required],
+      "categoryDescription": ['',Validators.required]
+    })
+  }
 
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  private loadCategories(): void{
     this.categoryService.fetchAllCategories().subscribe(
       (data) => {
         console.log(data)
@@ -61,8 +53,24 @@ export class CategoryManagementComponent implements OnInit {
         console.error("Error fetching categories", error);
       }
     )
-    
   }
 
+  onSubmit() {
+    this.categoryService.createCategories(this.cform.value).subscribe((res)=>{
+      console.log(res)
+    })
+    window.location.reload();
+  }
 
+  onDelete(uuid: string){
+
+    if(!uuid) return;
+
+    this.categoryService.deleteCategory(uuid).subscribe(()=>{
+      console.log("Categoory deleted", uuid);
+      this.loadCategories();
+      this.categoryToDelete = null;
+      // window.location.reload();
+    });
+  }
 }

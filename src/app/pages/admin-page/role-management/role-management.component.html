@@ -64,10 +64,10 @@
                 </tr>
             </thead>
             <tbody class="text-gray-700 text-sm font-light">
-                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6">1</td>
-                    <td class="py-3 px-6">Technology</td>
-                    <td class="py-3 px-6">Category for tech services</td>
+                <tr *ngFor="let role in roles; let SNO=index;" class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6">{{(SNO+1)}}</td>
+                    <td class="py-3 px-6">{{role.name}}</td>
+                    <td class="py-3 px-6">{{role.description}}</td>
                     <td class="py-3 px-6">
                         <div class="flex items-center space-x-2">
                             <button class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs">Edit</button>
