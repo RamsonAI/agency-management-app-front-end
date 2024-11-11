@@ -24,7 +24,8 @@ export class CategoryManagementComponent implements OnInit {
 
   constructor(private formbuilder:FormBuilder){
     this.cform = formbuilder.group({
-      "categoryName": ['',Validators.required]
+      "categoryName": ['',Validators.required],
+      "categoryDescription": ['',Validators.required]
     })
   }
   onSubmit() {
@@ -33,17 +34,6 @@ export class CategoryManagementComponent implements OnInit {
       // notify(res.message,'success',)
     })
     window.location.reload();
-  }
-
-  
-
-  onConfirmDelete(){
-    console.log("item deleted")
-  }
-
-  //handle Delete cancellation
-  onCancelDelete(){
-    console.log("Delete canceled")
   }
 
   categories!: Observable<Category[]>;

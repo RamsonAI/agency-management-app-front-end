@@ -22,8 +22,13 @@ export class CategoryService {
   fetchAllCategories(): Observable<LoadCategoryReponse>{
     return this.http.get<LoadCategoryReponse>(this.apiurl);
   }
+  
   createCategories(data: any): Observable<LoadCategoryReponse>{
     return this.http.post<any>(this.apiurl, data);
+  }
+
+  deleteCategory(uuid: string):Observable<void>{
+    return this.http.delete<void>(this.apiurl);
   }
 
 }
